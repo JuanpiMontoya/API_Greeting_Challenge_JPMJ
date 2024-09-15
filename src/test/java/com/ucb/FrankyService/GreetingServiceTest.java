@@ -13,10 +13,30 @@ class GreetingServiceTest {
     GreetingService greetingService;
 
     @Test
-    void getGreeting() {
+    void getGreeting_WithoutName() {
 
         assertEquals(
                 "Pregúntate si lo que estás haciendo hoy te acerca al lugar en el que quieres estar mañana",
+                greetingService.getGreeting());
+    }
+
+    @Test
+    void getGreeting_ResetingName() {
+
+        greetingService.Add_greeting_name("");
+
+        assertEquals(
+                "Pregúntate si lo que estás haciendo hoy te acerca al lugar en el que quieres estar mañana",
+                greetingService.getGreeting());
+    }
+
+    @Test
+    void getGreeting_WithName() {
+
+        greetingService.Add_greeting_name("Carlos");
+
+        assertEquals(
+                "Carlos. Pregúntate si lo que estás haciendo hoy te acerca al lugar en el que quieres estar mañana",
                 greetingService.getGreeting());
     }
 }
