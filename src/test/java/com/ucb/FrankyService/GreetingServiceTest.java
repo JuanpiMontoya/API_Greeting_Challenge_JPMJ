@@ -16,8 +16,16 @@ class GreetingServiceTest {
     void getGreeting_WithoutName() {
 
         assertEquals(
+                "Ask yourself if what you're doing today is getting you closer to where you want to be tomorrow",
+                greetingService.getGreeting("en"));
+    }
+
+    @Test
+    void getGreeting_WithoutName_Spanish() {
+
+        assertEquals(
                 "Pregúntate si lo que estás haciendo hoy te acerca al lugar en el que quieres estar mañana",
-                greetingService.getGreeting());
+                greetingService.getGreeting("es"));
     }
 
     @Test
@@ -25,18 +33,29 @@ class GreetingServiceTest {
 
         greetingService.Add_greeting_name("");
 
+
         assertEquals(
-                "Pregúntate si lo que estás haciendo hoy te acerca al lugar en el que quieres estar mañana",
-                greetingService.getGreeting());
+                "Ask yourself if what you're doing today is getting you closer to where you want to be tomorrow",
+                greetingService.getGreeting("en"));
     }
 
     @Test
     void getGreeting_WithName() {
 
-        greetingService.Add_greeting_name("Carlos");
+        greetingService.Add_greeting_name("Roberto");
 
         assertEquals(
-                "Carlos. Pregúntate si lo que estás haciendo hoy te acerca al lugar en el que quieres estar mañana",
-                greetingService.getGreeting());
+                "Roberto. Ask yourself if what you're doing today is getting you closer to where you want to be tomorrow",
+                greetingService.getGreeting("en"));
+    }
+
+    @Test
+    void getGreeting_WithName_Spanish() {
+
+        greetingService.Add_greeting_name("Roberto");
+
+        assertEquals(
+                "Roberto. Pregúntate si lo que estás haciendo hoy te acerca al lugar en el que quieres estar mañana",
+                greetingService.getGreeting("es"));
     }
 }

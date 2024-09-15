@@ -11,8 +11,10 @@ public class GreetingController {
     GreetingService greetingService;
 
     @GetMapping
-    public String greeting() {
-        return greetingService.getGreeting();
+    public String greeting(
+            @RequestParam(value = "lang", defaultValue = "en") String lang
+    ) {
+        return greetingService.getGreeting(lang);
     }
 
     @PostMapping()
