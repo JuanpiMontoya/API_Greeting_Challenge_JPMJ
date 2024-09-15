@@ -1,15 +1,20 @@
 package com.ucb.FrankyService;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 class GreetingServiceTest {
+
+    @Autowired
+    GreetingService greetingService;
 
     @Test
     void getGreeting() {
 
-        GreetingService greetingService = new GreetingService();
         assertEquals(
                 "Pregúntate si lo que estás haciendo hoy te acerca al lugar en el que quieres estar mañana",
                 greetingService.getGreeting());

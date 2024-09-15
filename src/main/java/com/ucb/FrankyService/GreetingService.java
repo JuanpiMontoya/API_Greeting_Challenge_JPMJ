@@ -1,10 +1,13 @@
 package com.ucb.FrankyService;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class GreetingService {
-    String greet = "Pregúntate si lo que estás haciendo hoy te acerca al lugar en el que quieres estar mañana";
+
+    @Value("${greeting-message}")
+    String greet;
 
     public String getGreeting() {
         return greet;
